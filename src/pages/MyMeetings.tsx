@@ -33,7 +33,7 @@ function MyMeetings() {
                 ...(data as MeetingType),
               });
             }
-            // console.warn("Invalid meeting data:", data);
+            
             
           })
           setMeetings(myMeetings);
@@ -79,7 +79,16 @@ const columns=[
         field:"",
         name:"Status",
         render:(meeting:MeetingType)=>{
-            if(meeting.status){
+
+
+             if (!meeting.status) {
+    return (
+      <EuiBadge color="danger">
+        Canceled
+      </EuiBadge>
+    );
+  }
+           if(meeting.status){
            if(meeting.meetingDate===moment().format('L')){
             return(
                 <EuiBadge color='success'>
@@ -93,7 +102,7 @@ const columns=[
            else if(moment(meeting.meetingDate).isBefore(moment().format('L'))){
             return(
                 <EuiBadge color='default'>
-Ended
+                   Ended
                 </EuiBadge>
             )
            }
@@ -101,13 +110,6 @@ Ended
             return(
                 <EuiBadge color='primary'>
                     Upcoming
-                </EuiBadge>
-            )
-           }
-           else{
-            return(
-                <EuiBadge color='danger'>
-                    Cancelled
                 </EuiBadge>
             )
            }

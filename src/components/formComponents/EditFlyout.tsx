@@ -47,7 +47,7 @@ function EditFlyout({closeFlyout,meetings}:{
     })
   
     const onUserChange=(selectedOptions:any)=>{
-       setSelectedUsers(selectedOptions)
+       setSelectedUsers(selectedOptions as userType[])
     }
 
     const validateForm=()=>{
@@ -58,12 +58,12 @@ function EditFlyout({closeFlyout,meetings}:{
           cloneShowErrors.meetingName.message=["Please enter meeting name"]
           errors=true
         }
-        else{
-          cloneShowErrors.meetingName.show=false
-          cloneShowErrors.meetingName.message=[]
-        }
+        // else{
+        //   cloneShowErrors.meetingName.show=false
+        //   cloneShowErrors.meetingName.message=[]
+        // }
     
-        if(!selectedUsers.length){
+        else if(!selectedUsers.length){
           cloneShowErrors.meetingUser.show=true
           cloneShowErrors.meetingUser.message=["Please select a user"]
           errors=true
@@ -146,7 +146,6 @@ function EditFlyout({closeFlyout,meetings}:{
                 label="Cancel meeting"
                 checked={status}
                 onChange={(e)=>{setStatus(e.target.checked)}}
-               
                 />
             </EuiFormRow>
             <EuiSpacer/>

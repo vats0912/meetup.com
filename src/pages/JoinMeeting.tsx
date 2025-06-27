@@ -90,41 +90,47 @@ if(params.id && userLoaded){
 getMeetingData()
 },[createToast, navigate, params.id, user, userLoaded])
 
-
-const myMeeting=(element:any)=>{
-    const kitToken=ZegoUIKitPrebuilt.generateKitTokenForTest(
-        AppId,
-        serverSecret,
-        params.id as string,
-        user?.uid ? user.uid:generateMeeting(),
-        user?.displayName?user.displayName:generateMeeting()
-
-    )
-    // console.log(kitToken)
-    const zp=ZegoUIKitPrebuilt.create(kitToken)
-    zp.joinRoom({
-        container:element,
-        maxUsers:50,
-        sharedLinks:[
-            {
-                name:"Personal Link",
-                url:window.location.origin
-            }
-        ],
-        scenario:{
-            mode:ZegoUIKitPrebuilt.VideoConference,
-        }
-    })
+const myMeeting={
+    
 }
+
+
+
+// const myMeeting=(element:any)=>{
+//     const kitToken=ZegoUIKitPrebuilt.generateKitTokenForTest(
+//         AppId,
+//         serverSecret,
+//         params.id as string,
+//         user?.uid ? user.uid:generateMeeting(),
+//         user?.displayName?user.displayName:generateMeeting()
+
+//     )
+//     // console.log(kitToken)
+//     const zp=ZegoUIKitPrebuilt.create(kitToken)
+//     zp.joinRoom({
+//         container:element,
+//         maxUsers:50,
+//         sharedLinks:[
+//             {
+//                 name:"Personal Link",
+//                 url:window.location.origin
+//             }
+//         ],
+//         scenario:{
+//             mode:ZegoUIKitPrebuilt.VideoConference,
+//         }
+//     })
+// }
+
   return (
     <div>
-        {isAllowed &&
-        <div className='myCallContainer' ref={myMeeting} style={{width:'100%', height:"100vh"}}>
+      
+      <h2>Meeting creation will be coming soon</h2>
         
-        </div>
-}
-        </div>
-  )
-}
+         </div>
 
+       
+  )
+
+}
 export default JoinMeeting
