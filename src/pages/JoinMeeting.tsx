@@ -125,7 +125,7 @@ const myMeeting={
   return (
     <div>
       
-      <h2>Meeting creation will be coming soon</h2>
+      <h2>Meeting functionality can be eaily integrated using Zegocloud SDK.I have used free plan and it has expired now.Simply make an account on Zegocloud and integrate using simple lines of code</h2>
         
          </div>
 
